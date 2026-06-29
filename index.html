@@ -386,7 +386,6 @@ const EXTRA_ITEMS = [
   { id:'inbox',     icon:'💬', label:'Inbox Monitor', badge:'5' },
   { id:'dispatch',  icon:'🚚', label:'Dispatch Tracker' },
   { id:'section',   icon:'⚙️', label:'Section Mode' },
-  { id:'proposal',  icon:'💰', label:'Proposal & Cost' },
   { id:'advanced',  icon:'🚀', label:'Advanced Features' },
 ];
 
@@ -504,8 +503,7 @@ function Dashboard({setPage}){
             {lbl:'Upload Drawing', page:'upload',   color:'btn-primary'},
             {lbl:'Check Inbox',    page:'inbox',    color:'btn-outline'},
             {lbl:'Dispatch Update',page:'dispatch', color:'btn-outline'},
-            {lbl:'View Proposals', page:'proposal', color:'btn-outline'},
-          ].map(a=>(
+                      ].map(a=>(
             <button key={a.lbl} className={`btn ${a.color}`} onClick={()=>setPage(a.page)} style={{width:'100%',marginBottom:8,textAlign:'left'}}>{a.lbl}</button>
           ))}
           <div className="divider"/>
@@ -1940,7 +1938,7 @@ const pageTitles={
   approval:'Step 6: Client Approval',order_gen:'Step 7: Order Generation',factory:'Step 8: Send to Factory',
   drawing_ai:'Template AI Analysis (from Pushpak PDF)',
   autocad:'AutoCAD Studio',inbox:'Inbox Monitor',dispatch:'Dispatch Tracker',
-  section:'Section Mode',proposal:'Proposal & Cost',advanced:'Advanced Features',
+  section:'Section Mode',advanced:'Advanced Features',
 };
 
 const ACTIVE_STEP_MAP={inquiry:1,upload:2,extract:3,pictorial:4,verify:5,approval:6,order_gen:7,factory:8};
@@ -1965,7 +1963,6 @@ function App(){
       case 'inbox':     return <InboxMonitor setPage={setPage}/>;
       case 'dispatch':  return <DispatchTracker/>;
       case 'section':   return <SectionMode/>;
-      case 'proposal':  return <Proposal/>;
       case 'advanced':  return <Advanced/>;
       default: return <Dashboard setPage={setPage}/>;
     }
